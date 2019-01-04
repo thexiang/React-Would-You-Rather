@@ -5,7 +5,7 @@ MyReads is a udacity nanodegree projects to practice "react-redux", "react-route
 ## How this app works:
 the gif below demostrate how the app work
 
-![](demo.gif)
+![](Demo.gif)
 
 
 
