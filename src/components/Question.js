@@ -4,46 +4,39 @@ import {Link} from 'react-router-dom'
 import { Panel, Image, Jumbotron,Table} from 'react-bootstrap'
 
 class Question extends Component {
-    render() {
-        const {question, questionAuthor, isAnswered} = this.props
-        const questionLink = `/questions/${question.id}`
-        return (
-            <Panel>
-                <Panel.Heading>
-                  <Panel.Title componentClass="h3">
-                    {questionAuthor.name} {isAnswered ? 'asked:' : 'asks:'}
-                  </Panel.Title>
-                </Panel.Heading>
-                <Panel.Body>
-                <Table striped bordered condensed hover>
-                    <tbody>
-                      <tr>
-                        <td align = "center"><Image circle className="avatar" src={questionAuthor.avatarURL} /></td>
-                        <td>
-                          <Jumbotron>
-                          <h4>Would you rather...</h4>
-                          <h5>
-                            {"... "+ LCS(question.optionOne.text,question.optionTwo.text) + " ..."}
-                          </h5>
-                          <p>
-                              <Link className="btn btn-info" to={questionLink}>
-                                {isAnswered ? answeredBtn() : unAnsweredBtn()}
-                              </Link>
-                          </p>
-                          </Jumbotron>
-                        </td>
-
+  render () {
+    const {question, questionAuthor, isAnswered} = this.props
+    const questionLink = `/questions/${question.id}`
+      return (
+      <Panel>
+        <Panel.Heading>
+          <Panel.Title componentClass="h3">
+            {questionAuthor.name} {isAnswered ? 'asked:' : 'asks:'}
+          </Panel.Title>
+        </Panel.Heading>
+        <Panel.Body>
+          <Table striped bordered condensed hover>
+            <tbody>
+              <tr>
+                <td align ="center"><Image circle className="avatar" src={questionAuthor.avatarURL} /></td>
+                <td>
+                  <Jumbotron>
+                    <h4>Would you rather...</h4>
+                    <h5>
+                      {"... " + LCS(question.optionOne.text,question.optionTwo.text) + " ..."}
+                    </h5>
+                    <p>
+                      <Link className="btn btn-info" to={questionLink}>
+                        {isAnswered ? answeredBtn() : unAnsweredBtn()}
+                      </Link>
+                    </p>
+                  </Jumbotron>
+                </td>
               </tr>
-
             </tbody>
           </Table>
-
-
-
-
-                </Panel.Body>
-              </Panel>
-
+        </Panel.Body>
+     </Panel>
 
         )
     }

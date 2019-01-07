@@ -10,27 +10,28 @@ https://tylermcginnis.com/react-router-protected-routes-authentication/
 */
 
 const PrivateRoute = ({component: Component, isAuthenticated, ...rest}) => (
-    <Route {...rest} render={(props) => {
-        return (
-            isAuthenticated
-                ?
-                <Fragment>
-                    <Navigation />
-                    <Container>
-                        <Row>
-                            <Component {...props}/>
-                        </Row>
-                    </Container>
-                </Fragment>
-                : <Redirect to={{
-                    pathname: '/login',
-                    state: {from: props.location}
-                }}/>
-        )
-    }}/>
+  <Route {...rest} render={(props) => {
+    return (
+      isAuthenticated
+        ?
+        <Fragment>
+          <Navigation />
+          <Container>
+            <Row>
+              <Component {...props} />
+            </Row>
+          </Container>
+        </Fragment>
+        : <Redirect to={{
+          pathname: '/login',
+          state: {from: props.location}
+        }} />
+    )
+  }} />
 )
 
 function mapStateToProps({authedUser}) {
+    console.log(Object.keys(authedUser).length !== 0)
     return {
         isAuthenticated: Object.keys(authedUser).length !== 0
     }
