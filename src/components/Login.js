@@ -29,9 +29,9 @@ class Login extends Component {
     }
 
     render() {
-        const {from} = this.props.location.state || {from: {pathname: '/'}}
-
         const {isLoggedIn} = this.state
+
+        const {from} = this.props.location.state || {from: {pathname: '/'}}
 
         if (isLoggedIn) {
             return <Redirect to={from} />

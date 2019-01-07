@@ -27,7 +27,7 @@ class Question extends Component {
                     </h5>
                     <p>
                       <Link className="btn btn-info" to={questionLink}>
-                        {isAnswered ? answeredBtn() : unAnsweredBtn()}
+                        <span> {isAnswered ? "View Results" : "Answer Question" } </span>
                       </Link>
                     </p>
                   </Jumbotron>
@@ -43,13 +43,7 @@ class Question extends Component {
 
 }
 
-const unAnsweredBtn = () => (
-  <span>Answer Question</span>
-)
 
-const answeredBtn = () => (
-  <span>View Results</span>
-)
 
 /* find longest common substring */
 function LCS(string1, string2) {
